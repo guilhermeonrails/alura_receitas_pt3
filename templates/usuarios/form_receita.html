@@ -17,13 +17,14 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-heading">
-                    <h3>Poste sua receita, {{ user.username }} :)</h3>
+                    <h3>Crie sua receita, {{ user.username }} :)</h3>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12">
+            <p>Todos os campos são obrigatórios</p>
                 <div class="contact-form-area">
                     <form action="{% url 'form_receita' %}" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
@@ -31,32 +32,32 @@
                             <!--<input type="hidden" class="form-control" name="nome" value="{{ user.username }}">
                                 <input type="hidden" class="form-control" name="email" value="{{ user.email }}"><!-->
                             <div class="col-12 col-lg-12">
-                                <label for="file"><b>Nome da receita</b></label>
-                                <input type="text" class="form-control" name="nome_receita" placeholder="Ex. Suco de limão">
+                                <label for="nome_receita"><b>Título da receita</b></label>
+                                <input type="text" id="nome_receita" class="form-control" name="nome_receita" placeholder="Ex. Suco de limão" required>
                             </div>
                             <div class="col-12">
                                 <label for="file"><b>Ingredientes</b></label>
-                                <textarea class="form-control" name="ingredientes" cols="30" rows="10" placeholder="Ex. 2 Limões &#10;200ml de água"></textarea>
+                                <textarea class="form-control" name="ingredientes" cols="30" rows="10" placeholder="Ex. 2 Limões &#10;200ml de água" required></textarea>
                             </div>
                             <div class="col-12">
                                 <label for="file"><b>Modo de preparo</b></label>
-                                <textarea class="form-control" name="modo_preparo" cols="30" rows="10" placeholder="Ex. Corte o limão com cuidado e exprema no copo  &#10;Misture com a água e sirva."></textarea>
+                                <textarea class="form-control" name="modo_preparo" cols="30" rows="10" placeholder="Ex. Corte o limão com cuidado e exprema no copo  &#10;Misture com a água e sirva." required></textarea>
                             </div>
                             <div class="col-12 col-lg-3">
                                 <label for="file"><b>Tempo de preparo (minutos)</b></label>
-                                <input type="number" class="form-control" name="tempo_preparo" placeholder="Ex. 2">
+                                <input type="number" class="form-control" name="tempo_preparo" placeholder="Ex. 2" required>
                             </div>
                             <div class="col-12 col-lg-3">
                                 <label for="file"><b>Rendimento</b></label>
-                                <input type="text" class="form-control" name="rendimento" placeholder="Ex. serve 1 pessoa">
+                                <input type="text" class="form-control" name="rendimento" placeholder="Ex. serve 1 pessoa" required>
                             </div>
                             <div class="col-12 col-lg-3">
                                 <label for="file"><b>Categoria da receita</b></label>
-                                <input type="text" class="form-control" name="categoria" placeholder="Ex. Sucos e bebidas">
+                                <input type="text" class="form-control" name="categoria" placeholder="Ex. Sucos e bebidas" required>
                             </div>
                             <div class="col-12 col-lg-3">
                                 <label for="file"><b>Foto</b></label>
-                                <input type="file" class="form-control" name="foto_receita">
+                                <input type="file" class="form-control" name="foto_receita" required>
                             </div>
                             <div class="col-12 text-center">
                                 <button class="btn delicious-btn mt-30" type="submit">Criar sua receita</button>

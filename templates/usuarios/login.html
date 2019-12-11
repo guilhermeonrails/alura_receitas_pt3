@@ -21,6 +21,7 @@
                 </div>
             </div>
         </div>
+        {% include 'partials/_alertas.html'%}
         <div class="row">
             <div class="col-12">
                 <div class="contact-form-area">
@@ -28,13 +29,16 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-12 col-lg-12">
-                                <input type="text" class="form-control" name="nome" placeholder="Nome">
+                            <label for="email"><b>Email</b></label>
+                                <input type="text" id="email" class="form-control" name="email" placeholder="Entre com o email cadastrado">
                             </div>
-                            <div class="col-12 col-lg-12">
-                                <input type="password" class="form-control" name="senha" placeholder="Senha">
+                                <div class="col-12 col-lg-12">
+                                <label for="senha"><b>Senha</b></label>
+                                <input id="senha" type="password" class="form-control" name="senha" placeholder="Digite aqui sua senha">
                             </div>
                             <div class="col-12 text-center">
-                                <button class="btn delicious-btn mt-30" type="submit">Acessar sua conta</button>
+                                <button class="btn btn-success" type="submit">Acessar sua conta</button>
+                                <button type="button" class="btn btn-primary" onclick="exibirCriarConta()">Ainda não tem conta? Clique aqui</button>
                             </div>
                         </div>
                     </form>
@@ -43,6 +47,13 @@
         </div>
     </div>
 </div>
+
+<script>
+function exibirCriarConta()
+{
+     location.href = "{% url 'cadastro' %}";
+} 
+</script>
 
 {% include 'partials/_footer.html' %}
 {% endblock %}
